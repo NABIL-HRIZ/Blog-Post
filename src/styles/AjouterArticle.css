@@ -1,0 +1,103 @@
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #4a6cf7;
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 25px;
+  transition: color 0.3s;
+}
+
+.back-link:hover {
+  color: #2e4acd;
+}
+.form-section {
+    max-width: 800px;
+    margin:20px auto;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
+}
+
+.form-title {
+    font-size:2.5rem;
+    color: #8b95be;
+    text-align: center;
+    margin-bottom: 30px !important;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.form-control:focus {
+    border-color: #4a6cf7;
+    box-shadow: 0 0 0 0.25rem rgba(74, 108, 247, 0.2);
+    background-color: #f8fbff;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+}
+.myBtn {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+
+.btn-pulse {
+  background-color:rgb(127, 127, 202);
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.8rem;
+}
+
+
+@media (max-width: 768px) {
+    .form-section {
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    .form-title {
+        font-size: 1.8rem;
+    }
+    
+    .myBtn {
+        width: 100%;
+        padding: 12px;
+    }
+}
