@@ -2,8 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 import '../styles/ArticleList.css'
 import Pagination from 'react-bootstrap/Pagination';
+import AOS from 'aos';
 const ArticleList = () => {
     const [users,setUsers]=useState([])
+      const [loading,setLoading]=useState(true)
+    
+
+      //for pagination
+   const [currentPage, setCurrentPage] = useState(1);
+  const articlesPerPage=8
 
     // useEffect(()=>{
     //     const url ="https://dummyjson.com/posts"
@@ -14,6 +21,14 @@ const ArticleList = () => {
     //         console.error("cant upload data",error)
     //     })
     // })
+
+    useEffect(() => {
+  AOS.init({
+    duration: 800,
+    once: true, 
+  });
+}, []);
+
     useEffect(() => {
     const fetchArticles = async () => {
       try {
@@ -31,14 +46,25 @@ const ArticleList = () => {
         setUsers(combined);
       } catch (error) {
         console.error("can't upload data", error);
-      }
+      }finally {
+        
+        setTimeout(() => {
+          setLoading(false);
+        },50);
+      
+    };
     };
 
     fetchArticles();
   }, []); 
-
-   const [currentPage, setCurrentPage] = useState(1);
-  const articlesPerPage=8
+ if (loading) {
+  return (
+    <div className='loading'>
+      <h1>En cours de chargement...</h1>
+      <div className="loader"></div>
+    </div>
+  );
+}
 
  const totalPages = Math.ceil(users.length / articlesPerPage);
   const startIndex = (currentPage - 1) * articlesPerPage;
@@ -58,13 +84,14 @@ for (let number = 1; number <=totalPages; number++) {
     <div  className='container'>
         <h1 className="title"> Nos Articles</h1>
         <ul className="post-list">
-            {currentArticles.map(user=>(
-                <li key={user.id} className="post-card">
+            {currentArticles.map((user,index)=>(
+                <li key={user.id} className="post-card"  data-aos="fade-up"
+    data-aos-delay={index * 100}>
                 <strong className="post-title">{user.title}</strong>
                 <p className="post-body" style={{ maxHeight: "200px", overflow: "hidden" }}>
   {user.body.split(" ").slice(0,30).join(" ")}...
 </p>
-                <Link to={`/article/${user.id}`} class="myBtn btn-pulse" style={{textDecoration:'none'}}>Lire le suit</Link>
+                <Link to={`/article/${user.id}`} className="myBtn btn-pulse" style={{textDecoration:'none'}}>Lire le suit</Link>
 
                 </li>
             ))}

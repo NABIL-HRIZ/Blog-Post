@@ -23,6 +23,16 @@ const AjouterArticle = () => {
    
     const handleSubmit=async (e)=>{
          e.preventDefault()
+         if (!title.trim() || !body.trim() ) {
+           Swal.fire({
+  icon: "error",
+  title: "Champs manquants",
+  text: "Veuillez remplir tous les champs avant de publier.",
+});
+         return;
+         }
+
+
         const article={title,body,tags}
 
    
@@ -53,7 +63,7 @@ const AjouterArticle = () => {
   stored.unshift(finalArticle);
   localStorage.setItem('articles', JSON.stringify(stored));
        Swal.fire({
-  title: "Artcile Bien Ajouter !",
+  title: "Article Bien Ajouter !",
   icon: "success",
   draggable: true
 });
@@ -84,7 +94,6 @@ const AjouterArticle = () => {
         type="text" 
         placeholder="Titre de l'article..." 
         className="border-primary"
-        required
         value={title}
         onChange={handleTitle}
       />
@@ -96,7 +105,6 @@ const AjouterArticle = () => {
         type="text" 
         placeholder="Les Tags  : sport,heath,fun " 
         className="border-primary"
-        required
         value={tags}
         onChange={handleTags}
       />
@@ -109,7 +117,6 @@ const AjouterArticle = () => {
         rows={5} 
         placeholder="Écrivez ici..." 
         className="border-primary"
-        required
         value={body}
         onChange={handleBody}
 

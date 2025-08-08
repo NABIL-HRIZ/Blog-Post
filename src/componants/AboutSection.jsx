@@ -1,12 +1,20 @@
 import '../styles/AboutSection.css'
+import { useEffect } from 'react';
+import AOS from 'aos'
 const AboutSection = () => {
+  useEffect(() => {
+  AOS.init({
+    duration:1500,
+    once: true
+  });
+}, []);
   return (
     <div className="fade-in p-5">
-      <h2 className="h2 mb-4" style={{color:"rgb(128, 128, 196)"}}> <i className="fa-solid fa-exclamation"></i>  À propos de BlogPost</h2>
+      <h2 className="h2 mb-4" style={{color:"rgb(128, 128, 196)"}} data-aos="fade-down" > <i className="fa-solid fa-exclamation"></i>  À propos de BlogPost</h2>
 
       <div className="row g-4">
         <div className="col-lg-8">
-          <div className="card custom-card">
+          <div className="card custom-card"  data-aos="fade-right" data-aos-delay='200'>
             <div className="card-header-custom">
               <h4 className="card-title-custom">Notre Mission</h4>
             </div>
@@ -20,7 +28,7 @@ const AboutSection = () => {
           </div>
         </div>
 
-        <div className="col-lg-4">
+        <div className="col-lg-4" data-aos="fade-left" data-aos-delay='400'>
           <div className="card custom-card">
             <div className="card-header-custom">
               <h5 className="card-title-custom">🎯 Fonctionnalités</h5>

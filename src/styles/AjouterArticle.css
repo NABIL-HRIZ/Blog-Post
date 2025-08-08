@@ -52,7 +52,7 @@
     margin-bottom: 8px;
     font-size: 1.05rem;
 }
-.myBtn {
+a .myBtn {
   padding: 10px 20px;
   margin: 10px;
   border: none;
@@ -62,7 +62,7 @@
 }
 
 
-.btn-pulse {
+ a .btn-pulse {
   background-color:rgb(127, 127, 202);
   color: white;
   animation: pulse 2s infinite;
