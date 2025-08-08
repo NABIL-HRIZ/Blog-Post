@@ -1,14 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import '../styles/AjouterArticle.css'
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import AOS from 'aos'
 const AjouterArticle = () => {
 
     const [title,setTitle]=useState('')
     const [body,setBody]=useState('')
     const [tags,setTags]=useState('')
+
+   
+     useEffect(() => {
+       AOS.init({
+         duration: 800,
+         once: true, 
+       });
+     }, []);
 
 
  const handleTitle=(e)=>{
@@ -82,7 +91,7 @@ const AjouterArticle = () => {
 
   return (
     
-    <div className="form-section">
+    <div className="form-section"  data-aos="fade-up">
        <Link to="/" className="back-link">
               <i className="fa-solid fa-arrow-left"></i> Retour à l'accueil
            </Link>
