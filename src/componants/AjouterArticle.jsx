@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import '../styles/AjouterArticle.css'
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2'
 const AjouterArticle = () => {
 
     const [title,setTitle]=useState('')
@@ -51,7 +52,11 @@ const AjouterArticle = () => {
          const stored = JSON.parse(localStorage.getItem('articles')) || [];
   stored.unshift(finalArticle);
   localStorage.setItem('articles', JSON.stringify(stored));
-        alert('Article bien ajouté')
+       Swal.fire({
+  title: "Artcile Bien Ajouter !",
+  icon: "success",
+  draggable: true
+});
         setTitle('')
         setBody('')
         setTags('')
@@ -112,6 +117,7 @@ const AjouterArticle = () => {
     </Form.Group>
 
     <div className="text-end">
+      
       <Button className='myBtn btn-pulse' type="submit">
         Publier
       </Button>
