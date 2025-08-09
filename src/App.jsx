@@ -13,7 +13,6 @@ import HeroSection from "./componants/HeroSection";
 import MyNavbar from "./componants/Navbar";
 import AjouterArticle from "./componants/AjouterArticle";
 import TrueFocus from "./componants/TrueFocus";
-import BlurText from "./componants/BlurText";
 import PageNotFound from "./componants/PageNotFound";
 
 const AppContent = () => {
@@ -75,7 +74,6 @@ const App = () => {
           borderColor="#6588d3"
           animationDuration={2}
           pauseBetweenAnimations={1}
-          title={<BlurText />}
         />
       </div>
     );
